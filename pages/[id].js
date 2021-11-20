@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Image from "next/image"
+import Image from "../ui/Image"
 import Link from "next/link"
 import { mock } from "../data"
 import styles from '../styles/Home.module.css'
@@ -39,13 +39,24 @@ const HouseInformation = ({ data }) => {
   )
 }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const getSelectedHome = mock?.find(el => el.id === params.id)
   return {
     props: {
       data: getSelectedHome
     },
   }
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: mock.map((item) => ({
+      params: {
+        id: item.id,
+      },
+    })),
+    fallback: false,
+  };
 }
 
 export default HouseInformation
