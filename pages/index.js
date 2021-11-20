@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "../ui/Image"
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { mock } from "../data"

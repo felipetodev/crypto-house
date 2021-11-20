@@ -14,6 +14,7 @@
 
 .main img {
   aspect-ratio: 1;
+  transition: filter .5s;
 }
 
 .footer {
@@ -133,6 +134,14 @@
 
 .buyButton:hover {
   background-color: #1e59f1;
+}
+
+.imgLoading {
+  filter: grayscale(1) blur(12px);
+}
+
+.imgLoaded {
+  filter: grayscale(0) blur(0);
 }
 
 @media (max-width: 600px) {
