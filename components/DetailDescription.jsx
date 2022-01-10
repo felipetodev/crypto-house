@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button } from 'components/Button'
+import { ArrowIcon } from 'components/ArrowIcon'
 
 export function DetailDescription () {
   const [toggle, setToggle] = useState(false)
@@ -53,11 +54,10 @@ export function DetailDescription () {
     </p>
 
     <Button
-      href
       onClick={() => setToggle(!toggle)}
-      className={`${linearGradient} relative bg-transparent px-0 border-white cursor-pointer`}
+      className={`${linearGradient} relative bg-transparent text-blue-500 px-0 flex`}
     >
-      {toggle ? 'Cerrar' : 'Leer más'}
+      {toggle ? 'Cerrar' : 'Leer más'} <ArrowIcon className='ml-2' direction={toggle ? 'top' : 'bottom'} />
     </Button>
   </div>
   )

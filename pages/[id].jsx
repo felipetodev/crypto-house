@@ -5,6 +5,7 @@ import { mock } from 'data.js'
 import { useSession, signIn } from 'next-auth/react'
 import { Button } from 'components/Button'
 import { DetailDescription } from 'components/DetailDescription'
+import { ArrowIcon } from 'components/ArrowIcon'
 
 const HouseInformation = ({ data }) => {
   const [authMessage, setAuthMessage] = useState(false)
@@ -32,7 +33,7 @@ const HouseInformation = ({ data }) => {
         <Link href='/'>
           <a>
             <Button href className='py-1.5 px-1.5 hover:bg-blue-100'>
-              &larr; Volver
+              <ArrowIcon direction='left' className='mr-3' /> Volver
             </Button>
           </a>
         </Link>
@@ -41,7 +42,7 @@ const HouseInformation = ({ data }) => {
             &larr; Anterior <---- TODO: Pagination
           /Button> */}
           <Button href='/' className='ml-2 py-1.5 px-1.5 border-white hover:border-blue-100 hover:bg-blue-100'>
-            Siguiente &rarr;
+            Siguiente <ArrowIcon direction='right' className='ml-3' />
           </Button>
         </div>
       </div>

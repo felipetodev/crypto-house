@@ -2,6 +2,7 @@ import Image from 'ui/Image'
 import Link from 'next/link'
 import { mock } from 'data.js'
 import { Button } from 'components/Button'
+import { ArrowIcon } from 'components/ArrowIcon'
 
 /* What a component name don't? lol */
 export function Cards () {
@@ -14,8 +15,8 @@ export function Cards () {
             <li key={item.id} className='group'>
               <Link href={`/${item.id}`}>
                 <a>
-                  <h2 className='font-medium text-gray-800 mb-2 group-hover:text-blue-400'>
-                    {item.name} &rarr;
+                  <h2 className='flex font-medium text-gray-800 mb-2 group-hover:text-blue-400'>
+                    {item.name} <ArrowIcon direction='right' className='ml-3 text-inherit' />
                   </h2>
                   <Image
                     className='rounded-xl object-cover'
