@@ -1,15 +1,17 @@
-const { Client, resources } = require("coinbase-commerce-node");
-Client.init(process.env.COINBASE_CLIENT_ID);
-const { Charge } = resources;
+import { prisma } from 'prisma/index'
+const { Client, resources } = require('coinbase-commerce-node')
+Client.init(process.env.COINBASE_CLIENT_ID)
+const { Charge } = resources
 
-export default async function handler(req, res) {
+export default async function handler (req, res) {
   const { body = {}, method } = req
 
-  if (method === "GET") {
-    res.status(200).json({ name: 'Test' })
+  if (method === 'GET') {
+    const user = await prisma.user.findMany({})
+    res.status(200).json(user)
   }
 
-  if (method === "POST") {
+  if (method === 'POST') {
     try {
       const charge = await Charge.create(body)
       res.status(201).json(charge)
