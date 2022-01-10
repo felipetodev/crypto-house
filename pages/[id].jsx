@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Image from 'ui/Image'
-import Link from 'next/link'
 import { mock } from 'data.js'
 import { useSession, signIn } from 'next-auth/react'
 import { Button } from 'components/Button'
@@ -30,18 +29,14 @@ const HouseInformation = ({ data }) => {
   return (
     <main className='container mx-auto'>
       <div className='flex justify-between my-4'>
-        <Link href='/'>
-          <a>
-            <Button href className='py-1.5 px-1.5 hover:bg-blue-100'>
-              <ArrowIcon direction='left' className='mr-3' /> Volver
-            </Button>
-          </a>
-        </Link>
+        <Button href='/' className='py-1 px-1 hover:bg-blue-100'>
+          <ArrowIcon direction='left' className='mr-3' /> Volver
+        </Button>
         <div>
           {/* <Button href='/anterior' className='py-1 px-2 border-transparent bg-white hover:bg-blue-100'>
             &larr; Anterior <---- TODO: Pagination
           /Button> */}
-          <Button href='/' className='ml-2 py-1.5 px-1.5 border-white hover:border-blue-100 hover:bg-blue-100'>
+          <Button href='#' className='ml-2 py-1 px-1 border-white hover:border-blue-100 hover:bg-blue-100'>
             Siguiente <ArrowIcon direction='right' className='ml-3' />
           </Button>
         </div>

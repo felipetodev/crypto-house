@@ -6,8 +6,8 @@ const navigation = {
     path: '/search'
   },
   challenges: {
-    name: 'Favoritos',
-    path: '/favs'
+    name: 'Nosotros',
+    path: '/about'
   },
   faqs: {
     name: 'FAQ',

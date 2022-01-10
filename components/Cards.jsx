@@ -47,7 +47,9 @@ export function Cards () {
               </Link>
               <div className='mb-4'>
                 <Button onClick={() => alert('TODO 🙆‍♂️')}>Contactar</Button>
-                <Button className="ml-2 border-blue-500 hover:border-blue-600" href="tel:987777777">Telefono</Button>
+                <Button href='tel:987777777' className='ml-2 border-blue-500 hover:border-blue-600'>
+                  Telefono
+                </Button>
               </div>
             </li>
           ))}
