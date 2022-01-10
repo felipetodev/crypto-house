@@ -29,14 +29,14 @@ const HouseInformation = ({ data }) => {
   return (
     <main className='container mx-auto'>
       <div className='flex justify-between my-4'>
-        <Button href='/' className='py-1 px-1 hover:bg-blue-100'>
+        <Button href='/'>
           <ArrowIcon direction='left' className='mr-3' /> Volver
         </Button>
         <div>
-          {/* <Button href='/anterior' className='py-1 px-2 border-transparent bg-white hover:bg-blue-100'>
+          {/* <Button href='/anterior' className='py-1 px-2 border-transparent bg-white'>
             &larr; Anterior <---- TODO: Pagination
           /Button> */}
-          <Button href='#' className='ml-2 py-1 px-1 border-white hover:border-blue-100 hover:bg-blue-100'>
+          <Button href='#' className='ml-2 border-white hover:border-blue-100'>
             Siguiente <ArrowIcon direction='right' className='ml-3' />
           </Button>
         </div>
@@ -64,10 +64,10 @@ const HouseInformation = ({ data }) => {
               {/* <----- TODO: Add Intl number format */}
             </span>
             <div>
-            <Button href='/' className='border-white bg-transparent hover:border-blue-100 hover:bg-blue-100'>
+            <Button href='#' className='inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 text-sky-600 hover:text-sky-700 focus:ring-sky-600 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 mt-8'>
               Compartir
             </Button>
-            <Button className='bg-transparent ml-2 text-[#2563EB] border-blue-600 hover:bg-blue-100'>
+            <Button className='ml-3 inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 text-sky-600 hover:bg-sky-100 hover:text-sky-700 focus:ring-sky-600 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 mt-8'>
               💙 Favorito
             </Button>
             </div>

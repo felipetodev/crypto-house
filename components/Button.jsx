@@ -6,7 +6,7 @@ export function Button ({ href, children, className, ...restOfProps }) {
       <Link href={href}>
         <a
           {...restOfProps}
-          className={`border-transparent border-2 inline-flex font-medium text-sm text-blue-600 py-2 px-4 rounded-xl ${className}`}
+          className={`border-transparent border-2 inline-flex font-medium text-sm text-blue-600 py-2 px-4 rounded-xl hover:bg-blue-100 hover:border-blue-100 ${className}`}
         >
           {children}
         </a>
