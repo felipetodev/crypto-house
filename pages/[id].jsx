@@ -5,6 +5,8 @@ import { useSession, signIn } from 'next-auth/react'
 import { Button } from 'components/Button'
 import { DetailDescription } from 'components/DetailDescription'
 import { ArrowIcon } from 'components/ArrowIcon'
+import { UspsFeatures } from 'components/UspsFeatures'
+import { HeartIcon, ShareIcon, CameraIcon } from 'components/icons'
 
 const HouseInformation = ({ data }) => {
   const [authMessage, setAuthMessage] = useState(false)
@@ -50,8 +52,8 @@ const HouseInformation = ({ data }) => {
             src={`/${data.id}.jpeg`}
             alt={data.id}
           />
-          <Button className='bg-blue-50 text-slate-900 absolute bottom-8 left-16 hover:bg-blue-100'>
-            📷 42 fotos
+          <Button className='flex bg-blue-50 text-slate-900 absolute bottom-8 left-16 hover:bg-blue-100'>
+            <CameraIcon /> 42 Fotos
           </Button>
         </div>
       </section>
@@ -64,11 +66,11 @@ const HouseInformation = ({ data }) => {
               {/* <----- TODO: Add Intl number format */}
             </span>
             <div>
-            <Button href='#' className='inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 text-sky-600 hover:text-sky-700 focus:ring-sky-600 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 mt-8'>
-              Compartir
+            <Button href='#' className='inline-flex items-center h-9 rounded-full text-sm whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 !text-sky-600 hover:text-sky-700 focus:ring-sky-600 mt-8'>
+              <ShareIcon className='mr-2 text-sky-600' /> Compartir
             </Button>
-            <Button className='ml-3 inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 text-sky-600 hover:bg-sky-100 hover:text-sky-700 focus:ring-sky-600 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 mt-8'>
-              💙 Favorito
+            <Button className='ml-3 inline-flex items-center h-9 rounded-full text-sm whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 text-sky-600 hover:bg-sky-100 hover:text-sky-700 focus:ring-sky-600 mt-8'>
+              <HeartIcon className='mr-2 text-sky-600' /> Favorito
             </Button>
             </div>
           </div>
@@ -91,7 +93,9 @@ const HouseInformation = ({ data }) => {
             </Button>
           </div>
 
-          <Button onClick={fetchBuyOrder}>
+          <UspsFeatures />
+
+          <Button onClick={fetchBuyOrder} className='mt-10'>
             Comprar ${data.local_price.amount}
           </Button>
           {authMessage && (
