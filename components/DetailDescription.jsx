@@ -11,7 +11,7 @@ export function DetailDescription () {
 
   const linearGradient = toggle
     ? ''
-    : 'before:bg-hero-pattern before:-top-16 before:w-screen before:h-12 before:absolute before:-inset-1'
+    : 'before:pointer-events-none before:bg-hero-pattern before:-top-16 before:w-screen before:h-12 before:absolute before:-inset-1'
 
   return (
     <div className='mb-8 overflow-hidden'>
