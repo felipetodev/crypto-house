@@ -4,15 +4,15 @@ import NextImage from 'next/image'
 const Image = ({ className, ...restOfProps }) => {
   const [isLoading, toggleLoading] = useState(true)
 
-  const styles = isLoading
-    ? 'grayscale blur-lg'
+  const blurDown = isLoading
+    ? 'grayscale blur-md'
     : 'grayscale-0 blur-none'
 
   return (
     <NextImage
       {...restOfProps}
       loading='lazy'
-      className={`filter transition-all duration-500 ${styles} ${className}`}
+      className={`transition-all duration-500 motion-reduce:transition-none motion-reduce:transform-none ${blurDown} ${className}`}
       onLoadingComplete={() => toggleLoading(false)}
     />
   )
