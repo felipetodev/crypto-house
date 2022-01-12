@@ -7,6 +7,7 @@ import { DetailDescription } from 'components/DetailDescription'
 import { ArrowIcon } from 'components/ArrowIcon'
 import { UspsFeatures } from 'components/UspsFeatures'
 import { HeartIcon, ShareIcon, CameraIcon } from 'components/icons'
+import { GoogleMaps } from 'components/GoogleMaps'
 
 const HouseInformation = ({ data }) => {
   const [authMessage, setAuthMessage] = useState(false)
@@ -47,6 +48,7 @@ const HouseInformation = ({ data }) => {
       <section>
         <div className='relative h-96'>
           <Image
+            priority
             className='rounded-xl object-cover'
             layout='fill'
             src={`/${data.id}.jpeg`}
@@ -94,6 +96,8 @@ const HouseInformation = ({ data }) => {
           </div>
 
           <UspsFeatures />
+          {/* Use DB address house location */}
+          <GoogleMaps center={{ lat: -33.415187, lng: -70.594426 }} />
 
           <Button onClick={fetchBuyOrder} className='mt-10'>
             Comprar ${data.local_price.amount}
