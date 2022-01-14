@@ -8,6 +8,7 @@ import { ArrowIcon } from 'components/ArrowIcon'
 import { UspsFeatures } from 'components/UspsFeatures'
 import { HeartIcon, ShareIcon, CameraIcon } from 'components/icons'
 import { GoogleMaps } from 'components/GoogleMaps'
+import { AsideInfo } from 'components/AsideInfo'
 
 const HouseInformation = ({ data }) => {
   const [authMessage, setAuthMessage] = useState(false)
@@ -99,23 +100,27 @@ const HouseInformation = ({ data }) => {
           {/* Use DB address house location */}
           <GoogleMaps center={{ lat: -33.415187, lng: -70.594426 }} />
 
-          <Button onClick={fetchBuyOrder} className='mt-10'>
-            Comprar ${data.local_price.amount}
-          </Button>
-          {authMessage && (
-            <Button className='ml-2 bg-white text-slate-800 hover:bg-blue-100' onClick={() => signIn('google')}>
-              Debes iniciar sesión para continuar
-            </Button>
-          )}
+          <div className='border-b'>
+            <div className='max-w-xl mx-auto mb-10'>
+              <Button className='mt-8 flex justify-center w-full'>Preguntar la dirección exacta</Button>
+            </div>
+          </div>
         </div>
 
-        <aside className='right-side w-80'>
-          <div className='border border-red-500 h-96'>
-            TODO: Contacta al anunciante 🏠
-          </div>
-        </aside>
+        <AsideInfo />
 
       </section>
+
+      <div style={{ height: '80vh' }}>
+        <Button onClick={fetchBuyOrder} className='mt-10'>
+          Comprar ${data.local_price.amount}
+        </Button>
+        {authMessage && (
+          <Button className='ml-2 bg-white text-slate-800 hover:bg-blue-100' onClick={() => signIn('google')}>
+            Debes iniciar sesión para continuar
+          </Button>
+        )}
+      </div>
     </main>
   )
 }
