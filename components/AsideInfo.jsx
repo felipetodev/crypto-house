@@ -10,11 +10,11 @@ export function AsideInfo () {
   // Work in progress...
 
   return (
-    <aside className="right-side lg:w-80 top-0 mt-1">
-      <div className="hidden lg:block h-max sticky top-10 bg-blue-300 p-4 rounded-lg">
+    <aside className='right-side lg:w-80 top-0 mt-1'>
+      <div className='hidden lg:block h-max sticky top-10 bg-blue-300 p-4 rounded-lg'>
         <h3 className='text-white text-xl my-2 font-semibold'>Contacta con el anunciante</h3>
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
-          {/* register your input into the hook by invoking the "register" function */}
+          {/* register your input into the hook by invoking the 'register' function */}
           <input className='p-2 border border-blue-400' placeholder='Tu nombre' />
           <input className='p-2 my-4 border border-blue-400' placeholder='Tu email (obligatorio)' />
           <input className='p-2 mb-4 border border-blue-400' placeholder='Tu teléfono' />
@@ -28,7 +28,7 @@ export function AsideInfo () {
           {textArea
             ? <textarea className='p-2 h-40 mt-4 border border-blue-400' placeholder='Comentario' />
             : <Button onClick={() => setTextArea(true)} className='w-fit py-1 px-0 mt-4 bg-transparent text-white hover:bg-blue-400'>+ Añadir un comentario</Button>}
-          <Button type="submit" className='my-6'>Submit</Button>
+          <Button type='submit' className='my-6'>Contactar</Button>
         </form>
       </div>
     </aside>
