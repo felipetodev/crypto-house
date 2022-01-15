@@ -6,7 +6,7 @@ import { Button } from 'components/Button'
 import { DetailDescription } from 'components/DetailDescription'
 import { ArrowIcon } from 'components/ArrowIcon'
 import { UspsFeatures } from 'components/UspsFeatures'
-import { HeartIcon, ShareIcon, CameraIcon } from 'components/icons'
+import { HeartIcon, ShareIcon, CameraIcon, LocationIcon } from 'components/icons'
 import { GoogleMaps } from 'components/GoogleMaps'
 import { AsideInfo } from 'components/AsideInfo'
 
@@ -102,7 +102,9 @@ const HouseInformation = ({ data }) => {
 
           <div className='border-b'>
             <div className='max-w-xl mx-auto mb-10'>
-              <Button className='mt-8 flex justify-center w-full'>Preguntar la dirección exacta</Button>
+              <Button className='mt-8 flex justify-center w-full'>
+                <LocationIcon /> Preguntar la dirección exacta
+              </Button>
             </div>
           </div>
         </div>

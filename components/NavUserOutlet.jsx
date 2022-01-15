@@ -1,6 +1,7 @@
-import { useSession, signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { LoadingIcon } from 'components/LoadingIcon'
 import { LoginButton } from 'components/LoginButton'
+import { NavUserProfile } from './NavUserProfile'
 
 export const NavUserOutlet = () => {
   const { data: session, status } = useSession()
@@ -10,8 +11,7 @@ export const NavUserOutlet = () => {
 
   return (
     <>
-      Signed in as {session.user.email} <br />
-      <button onClick={() => signOut()}>Sign out</button>
+      <NavUserProfile user={session.user} />
     </>
   )
 }
