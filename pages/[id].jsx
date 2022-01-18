@@ -1,66 +1,19 @@
-import { useState } from 'react'
-import Image from 'ui/Image'
 import { mock } from 'data.js'
-import { useSession, signIn } from 'next-auth/react'
 import { Button } from 'components/Button'
 import { DetailDescription } from 'components/DetailDescription'
-import { ArrowIcon } from 'components/ArrowIcon'
 import { UspsFeatures } from 'components/UspsFeatures'
-import { HeartIcon, ShareIcon, CameraIcon, LocationIcon } from 'components/icons'
+import { HeartIcon, ShareIcon, LocationIcon } from 'components/icons'
 import { GoogleMaps } from 'components/GoogleMaps'
 import { AsideInfo } from 'components/AsideInfo'
+import { Cards } from 'components/Cards'
+import { Pagination } from 'components/Pagination'
+import { ProductGallery } from 'components/ProductGallery'
 
 const HouseInformation = ({ data }) => {
-  const [authMessage, setAuthMessage] = useState(false)
-  const { status } = useSession()
-  const isAuthenticated = status === 'authenticated'
-
-  const fetchBuyOrder = async () => {
-    if (!isAuthenticated) return setAuthMessage(true)
-    const sendData = await fetch('/api/coinbase', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-type': 'application/json'
-      }
-    })
-
-    const response = await sendData.json()
-    // TODO: use an iframe
-    window.open(response.hosted_url, 'self')
-  }
-
   return (
     <main className='container mx-auto'>
-      <div className='flex justify-between my-4'>
-        <Button href='/'>
-          <ArrowIcon direction='left' className='mr-3' /> Volver
-        </Button>
-        <div>
-          {/* <Button href='/anterior' className='py-1 px-2 border-transparent bg-white'>
-            &larr; Anterior <---- TODO: Pagination
-          /Button> */}
-          <Button href='#' className='ml-2 border-white hover:border-blue-100'>
-            Siguiente <ArrowIcon direction='right' className='ml-3' />
-          </Button>
-        </div>
-      </div>
-
-      <section>
-        <div className='relative h-96'>
-          <Image
-            priority
-            className='rounded-xl object-cover'
-            layout='fill'
-            src={`/${data.id}.jpeg`}
-            alt={data.id}
-          />
-          <Button className='flex bg-blue-50 text-slate-900 absolute bottom-8 left-16 hover:bg-blue-100'>
-            <CameraIcon /> 42 Fotos
-          </Button>
-        </div>
-      </section>
-
+      <Pagination />
+      <ProductGallery id={data.id} />
       <section className='flex mt-6'>
         <div className='left-side flex-auto w-96 mr-28'>
           <div className='flex justify-between'>
@@ -113,15 +66,23 @@ const HouseInformation = ({ data }) => {
 
       </section>
 
-      <div style={{ height: '80vh' }}>
-        <Button onClick={fetchBuyOrder} className='mt-10'>
-          Comprar ${data.local_price.amount}
-        </Button>
-        {authMessage && (
-          <Button className='ml-2 bg-white text-slate-800 hover:bg-blue-100' onClick={() => signIn('google')}>
-            Debes iniciar sesión para continuar
-          </Button>
-        )}
+      <div>
+        <div className='flex items-center border-b pb-8'>
+          <div className='rounded-md mt-8'>
+            <h2 className='font-semibold mb-4'>¿Hay algún error en el anuncio?</h2>
+            <span className='text-sm'>Explícanos qué has detectado para poder corregirlo.</span>
+            <Button className='flex mt-4 bg-transparent text-blue-500 border-blue-500'>
+              Reportar error
+            </Button>
+          </div>
+        </div>
+
+        <section>
+          <h2 className='mt-6 text-2xl font-medium text-gray-700'>
+            Personas que buscan algo similar también han visto...
+          </h2>
+          <Cards />
+        </section>
       </div>
     </main>
   )

@@ -9,7 +9,7 @@ export const ArrowIcon = ({ direction, className }) => {
   const arrowPointerDirection = arrowOptions[direction] || arrowOptions.default
   return (
     <svg
-      className={`${arrowPointerDirection} ${className} self-center overflow-visible text-blue-500 dark:text-gray-500 dark:group-hover:text-gray-400`}
+      className={`${arrowPointerDirection} ${className} self-center overflow-visible text-inherit`}
       width='3'
       height='6'
       viewBox='0 0 3 6'

@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { mock } from 'data.js'
 import { Button } from 'components/Button'
 import { ArrowIcon } from 'components/ArrowIcon'
+import { HeartIcon } from './icons'
 
 /* What a component name don't? lol */
 export function Cards () {
   return (
-    <div className='container mx-auto'>
-      <h2 className='text-gray-800 text-2xl mt-4 mb-4'>Recomendados para ti</h2>
+    <div className='container mx-auto mt-6'>
       <ul className='grid grid-cols-3 gap-4'>
         {mock &&
           mock.map((item) => (
@@ -16,7 +16,7 @@ export function Cards () {
               <Link href={`/${item.id}`}>
                 <a>
                   <h2 className='flex font-medium text-gray-800 mb-2 group-hover:text-blue-400'>
-                    {item.name} <ArrowIcon direction='right' className='ml-3 text-inherit' />
+                    {item.name} <ArrowIcon direction='right' className='ml-3' />
                   </h2>
                   <Image
                     className='rounded-xl object-cover'
@@ -45,10 +45,14 @@ export function Cards () {
                   </div>
                 </a>
               </Link>
-              <div className='mb-4'>
+              <div className='flex mb-4'>
                 <Button onClick={() => alert('TODO 🙆‍♂️')}>Contactar</Button>
                 <Button href='tel:987777777' className='ml-2 border-blue-500 hover:border-blue-600'>
                   Telefono
+                </Button>
+
+                <Button className='ml-auto bg-sky-100 text-sky-700 hover:bg-red-100 hover:text-red-600 px-2.5 rounded-full'>
+                  <HeartIcon />
                 </Button>
               </div>
             </li>
