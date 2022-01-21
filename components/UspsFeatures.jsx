@@ -7,7 +7,7 @@ export function UspsFeatures () {
         <h2 className='mt-6 text-2xl font-medium text-gray-700'>
           Características
         </h2>
-        <div className='mt-10 mb-10 grid md:grid-cols-2 lg:grid-cols-3 gap-x-24 gap-y-10'>
+        <div className='mt-10 mb-10 grid grid-cols-2 lg:grid-cols-3 gap-x-24 gap-y-10'>
           <div className='flex items-center'>
             <HouseIcon />
             <div className='ml-4 flex flex-col'>

@@ -15,7 +15,7 @@ const HouseInformation = ({ data }) => {
       <Pagination />
       <ProductGallery id={data.id} />
       <section className='flex mt-6'>
-        <div className='left-side flex-auto w-96 mr-28'>
+        <div className='left-side flex-auto lg:w-96 lg:mr-28'>
           <div className='flex justify-between'>
             <span className='text-2xl font-bold text-gray-600'>
               USD {data.local_price.amount}{' '}

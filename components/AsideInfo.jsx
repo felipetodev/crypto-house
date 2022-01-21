@@ -30,6 +30,10 @@ export function AsideInfo () {
             : <Button onClick={() => setTextArea(true)} className='w-fit py-1 px-0 mt-4 bg-transparent text-white hover:bg-blue-400'>+ Añadir un comentario</Button>}
           <Button type='submit' className='my-6'>Contactar</Button>
         </form>
+        <div className='flex gap-2 p-4 absolute left-0 -bottom-20 w-full'>
+          <Button className='w-full px-3 focus:outline-none focus:ring-2 bg-sky-100 text-sky-600 hover:bg-sky-200 hover:text-sky-700 focus:ring-sky-600'>Comprar</Button>
+          <Button className='w-full px-3 focus:outline-none focus:ring-2 bg-sky-100 text-sky-600 hover:bg-sky-200 hover:text-sky-700 focus:ring-sky-600'>Reservar</Button>
+        </div>
       </div>
     </aside>
   )
