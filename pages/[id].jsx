@@ -14,20 +14,22 @@ const HouseInformation = ({ data }) => {
     <main className='container mx-auto'>
       <Pagination />
       <ProductGallery id={data.id} />
-      <section className='flex mt-6'>
+      <section className='flex mt-6 container px-4 py-4'>
         <div className='left-side flex-auto lg:w-96 lg:mr-28'>
           <div className='flex justify-between'>
-            <span className='text-2xl font-bold text-gray-600'>
+            <span className='text-2xl font-bold text-gray-600 min-w-max'>
               USD {data.local_price.amount}{' '}
               {/* <----- TODO: Add Intl number format */}
             </span>
-            <div>
-            <Button href='#' className='inline-flex items-center h-9 rounded-full text-sm whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 !text-sky-600 hover:text-sky-700 focus:ring-sky-600 mt-8'>
-              <ShareIcon className='mr-2 text-sky-600' /> Compartir
-            </Button>
-            <Button className='ml-3 inline-flex items-center h-9 rounded-full text-sm whitespace-nowrap px-3 focus:outline-none focus:ring-2 bg-sky-50 text-sky-600 hover:bg-sky-100 hover:text-sky-700 focus:ring-sky-600 mt-8'>
-              <HeartIcon className='mr-2 text-sky-600' /> Favorito
-            </Button>
+            <div className='flex align-baseline mb-6'>
+              <Button href='#' className='inline-flex items-center h-9 !rounded-full text-sm whitespace-nowrap px-2 py-2 focus:outline-none focus:ring-2 bg-sky-50 !text-sky-600 hover:text-sky-700 focus:ring-sky-600'>
+                <ShareIcon className='text-sky-600' />
+                <span className='hidden lg:block ml-2 rounded-full'>Compartir</span>
+              </Button>
+              <Button className='ml-3 inline-flex items-center h-9 rounded-full text-sm whitespace-nowrap px-2 py-2 focus:outline-none focus:ring-2 bg-sky-50 text-sky-600 hover:bg-sky-100 hover:text-sky-700 focus:ring-sky-600'>
+                <HeartIcon className='text-sky-600' />
+                <span className='hidden lg:block ml-2'>Favorito</span>
+              </Button>
             </div>
           </div>
 
@@ -66,7 +68,7 @@ const HouseInformation = ({ data }) => {
 
       </section>
 
-      <div>
+      <div className='container px-4 py-4'>
         <div className='flex items-center border-b pb-8'>
           <div className='rounded-md mt-8'>
             <h2 className='font-semibold mb-4'>¿Hay algún error en el anuncio?</h2>

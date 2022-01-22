@@ -8,7 +8,7 @@ export function ProductGallery ({ id }) {
         <div className='relative h-96'>
           <Image
             priority
-            className='rounded-xl object-cover'
+            className='lg:rounded-xl object-cover'
             layout='fill'
             src={`/${id}.jpeg`}
             alt={id}
