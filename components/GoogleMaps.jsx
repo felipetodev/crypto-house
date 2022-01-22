@@ -26,7 +26,7 @@ export function GoogleMaps ({ center = DEFAULT_LOCATION, zoom = 18 }) {
   }, [mapRef, map])
 
   return (
-    <section className={`${!map ? 'border' : ''} h-[500px]`}>
+    <section className={`${!map ? 'border h-[500px]' : ''}`}>
       <h2 className='my-6 text-2xl font-medium text-gray-700'>
         Peñalolen, Region Metropolitana, Santiago.
         <p className='text-xs text-gray-500 mt-2'>Dirección aproximada otorgada por el anunciante</p>

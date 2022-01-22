@@ -17,7 +17,7 @@ export function NavUserProfile ({ user }) {
         width={36}
         height={36}
       />
-      <span onClick={() => setToggle(!toggle)} className='flex text-white ml-2 text-sm font-semibold cursor-pointer'>
+      <span onClick={() => setToggle(!toggle)} className='flex text-gray-500 dark:text-white ml-2 text-sm font-semibold cursor-pointer'>
         {name || 'Unknown'} <ArrowIcon className='ml-2 !text-inherit' direction='bottom' />
       </span>
       {toggle && (
