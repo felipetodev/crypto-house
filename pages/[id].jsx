@@ -64,7 +64,7 @@ const HouseInformation = ({ data }) => {
           </div>
         </div>
 
-        <AsideInfo />
+        <AsideInfo data={data} />
 
       </section>
 

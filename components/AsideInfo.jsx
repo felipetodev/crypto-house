@@ -1,11 +1,32 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button } from './Button'
+import { useWeb3React } from '@web3-react/core'
+import { connector } from 'config/web3'
+import { App } from 'hooks/useMetamask'
+// const contract = require('@truffle/contract')
 
-export function AsideInfo () {
+export function AsideInfo ({ data }) {
+  const { name, description, id, local_price: localPrice } = data || {}
+  const { currency, amount } = localPrice || {}
   const [textArea, setTextArea] = useState(false)
   const { handleSubmit } = useForm()
   const onSubmit = (data) => console.log(data)
+  const parseId = Number(id.replace('house', ''))
+
+  const { activate, active, account } = useWeb3React()
+  console.log({ account })
+
+  const connect = useCallback(() => {
+    activate(connector)
+  }, [activate])
+
+  const getContract = async () => {
+    if (active) {
+      await App.loadContracts()
+      await App.createHouse(parseId, name, description, currency, amount)
+    }
+  }
 
   // Work in progress...
 
@@ -31,8 +52,12 @@ export function AsideInfo () {
           <Button type='submit' className='my-6'>Contactar</Button>
         </form>
         <div className='flex gap-2 p-4 absolute left-0 -bottom-20 w-full'>
-          <Button className='w-full px-3 focus:outline-none focus:ring-2 bg-sky-100 text-sky-600 hover:bg-sky-200 hover:text-sky-700 focus:ring-sky-600'>Comprar</Button>
-          <Button className='w-full px-3 focus:outline-none focus:ring-2 bg-sky-100 text-sky-600 hover:bg-sky-200 hover:text-sky-700 focus:ring-sky-600'>Reservar</Button>
+          <Button onClick={connect} className='w-full px-3 focus:outline-none focus:ring-2 bg-sky-100 text-sky-600 hover:bg-sky-200 hover:text-sky-700 focus:ring-sky-600'>
+            Comprar
+          </Button>
+          <Button onClick={getContract} className='w-full px-3 focus:outline-none focus:ring-2 bg-sky-100 text-sky-600 hover:bg-sky-200 hover:text-sky-700 focus:ring-sky-600'>
+            Paso 2
+          </Button>
         </div>
       </div>
     </aside>

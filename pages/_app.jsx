@@ -3,6 +3,8 @@ import 'styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
 import { Header } from 'components/Header'
 import { Footer } from 'components/Footer'
+import { Web3ReactProvider } from '@web3-react/core'
+import { getLibrary } from 'config/web3'
 // import Script from 'next/script'
 
 function MyApp ({ Component, pageProps: { session, ...pageProps } }) {
@@ -18,7 +20,9 @@ function MyApp ({ Component, pageProps: { session, ...pageProps } }) {
 
       <SessionProvider session={session}>
         <Header />
-        <Component {...pageProps} />
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <Component {...pageProps} />
+        </Web3ReactProvider>
       </SessionProvider>
 
       <Footer />

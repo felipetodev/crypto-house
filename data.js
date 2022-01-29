@@ -28,7 +28,7 @@ export const mock = [
     id: 'house3',
     pricing_type: 'fixed_price',
     local_price: {
-      amount: 9.99,
+      amount: 10,
       currency: 'USD'
     }
   },
